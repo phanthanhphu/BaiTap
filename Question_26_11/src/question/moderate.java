@@ -1,9 +1,11 @@
 package question;
 
+import java.util.Scanner;
+
 public class moderate {
 
 
-	 void ProductArray(int arr[], int n) {
+	 void ProductArray(int array[], int n) {
 		 if(n == 1) {
 			 System.out.print(0);
 			 return;
@@ -26,11 +28,11 @@ public class moderate {
 		 
 		 //Determine value of rest elements leftArr[i]
 		 for(i = 1; i<n ; i++) {
-			 leftArr[i] = arr[i-1] * leftArr[i-1];
+			 leftArr[i] = array[i-1] * leftArr[i-1];
 		 }
 		//Determine value of rest elements rightArr[j]
 		 for(j = n-2;  j>= 0; j--) {
-			 rightArr[j] = arr[j+1] * rightArr[j+1];
+			 rightArr[j] = array[j+1] * rightArr[j+1];
 			 
 		 }
 		 //find except self as leftArr[i] * right[j]
@@ -44,14 +46,21 @@ public class moderate {
 		 }
 		 return;
 	 }
-	 
+	
 	 
 	 public static void main(String[] args) {
 		 moderate pa = new moderate();
-		 int arr[] = {1,2,3,4};
-		 int n = arr.length;
+		 Scanner sc = new Scanner(System.in);
+		 System.out.print("Input n: ");
+		 int n = sc.nextInt();
+		 int[] array = new int[n];
+		 for(int i = 0; i< n ; i++) {
+			 System.out.print("Import number " + i +": ");
+			 array[i] = sc.nextInt();
+			 
+		 }
 		 //access array and n input elements 
-		 pa.ProductArray(arr, n);
+		 pa.ProductArray(array, n);
 		 
 	 }
 	 
